@@ -81,7 +81,12 @@ public class TortoiseTortzeLeDeathDohbelPlayarz implements KeyEventDispatcher {
 			// Hint: "e.getKeyCode() == KeyEvent.VK_T" is TRUE when T is pressed
 			// 8. if the W key is pressed,
 			// call the method moveFoodUp();
-			Utility.playMusic("Boomm.wav");
+			int a = Tortoise.getX();
+			int b = Tortoise.getY();
+			if ((a == 100) && (b == 100)) {
+
+				Utility.playMusic(this, "Boomm.wav");
+			}
 			// 11. Do the same for left, right, and down. You can choose your
 			// own keys if you like. You will need to make new methods for
 			// moving the food.
@@ -134,8 +139,11 @@ public class TortoiseTortzeLeDeathDohbelPlayarz implements KeyEventDispatcher {
 
 	public static void main(String[] args) {
 		TortoiseTortzeLeDeathDohbelPlayarz feeder = new TortoiseTortzeLeDeathDohbelPlayarz();
+		Tortoise.setX(90);
+		Tortoise.setY(90);
 		feeder.controlTheTortoise();
 		feeder.feedTheTortoise();
+
 	}
 
 	private void controlTheTortoise() {
