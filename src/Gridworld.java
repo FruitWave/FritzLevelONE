@@ -10,17 +10,29 @@ public class Gridworld {
 
 		World cyberdalek = new World();
 		cyberdalek.show();
-		Bug cyber = new Bug();
-		Color dalek = Color.BLACK;
-		cyber.setColor(dalek);
 
-		for (int l = 0; l < 20; l++) {
+		for (int l = 0; l < 12; l++) {
+			Bug cyber = new Bug();
 			int hmmm = random(5);
-			Location stranded = new Location(random(6) + 1, random(3) + 1);
-			Location strranded = new Location(random(5) + 1, random(4) + 1);
-			Location strrranded = new Location(random(5) + 1, random(1) + 1);
-			Location strrrranded = new Location(random(3) + 1, random(7) + 1);
-			Location here = new Location(random(4) + 1, random(8) + 1);
+			int thedoctor = random(3);
+			Color dalek = Color.RED;
+			Color ood = Color.BLUE;
+			Color cyberman = Color.GREEN;
+			if (thedoctor == 0) {
+				cyber.setColor(dalek);
+			}
+			if (thedoctor == 1) {
+				cyber.setColor(ood);
+			}
+			if (thedoctor == 2) {
+				cyber.setColor(cyberman);
+			}
+
+			Location stranded = new Location(random(8) + 1, random(4) + 1);
+			Location strranded = new Location(random(6) + 1, random(7) + 1);
+			Location strrranded = new Location(random(8) + 1, random(3) + 1);
+			Location strrrranded = new Location(random(2) + 1, random(8) + 1);
+			Location here = new Location(random(8) + 1, random(5) + 1);
 			if (hmmm == 0) {
 				cyberdalek.add(here, cyber);
 			}
