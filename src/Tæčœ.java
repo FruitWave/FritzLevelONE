@@ -1,8 +1,11 @@
 
 public class Tæčœ {
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+String sauce;
+String meat;
+	public Tæčœ(String sauce, String meat){
+		this.meat = meat;
+		this.sauce = sauce;
+		
 
 	}
 
