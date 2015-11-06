@@ -1,10 +1,11 @@
-// Copyright Wintriss Technical Schools 2013
+////////////////////////////// Copyright Wintriss Technical Schools 2013
 import java.applet.AudioClip;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.GridLayout;
 import java.awt.Toolkit;
+import java.util.Date;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.net.URL;
@@ -27,8 +28,15 @@ import javax.swing.JPanel;
 public class JeoparCruddy implements ActionListener {
 	private JButton firstButton;
 	private JButton secondButton;
-	private JButton thirdButton, fourthButton;
-
+	private JButton thirdButton; 
+	private JButton fourthButton;
+	private JButton fifthButton;
+	private JButton sixthButton;
+	private JButton sevenButton;
+	private JButton eightButton;
+	private JButton nineButton;
+	
+Date timeAtStart;
 	private JPanel quizPanel;
 	int score = 0;
 	JLabel scoreBox = new JLabel("0");
@@ -39,6 +47,7 @@ public class JeoparCruddy implements ActionListener {
 	}
 
 	private void start() {
+		timeAtStart = new Date();
 		JFrame frame = new JFrame();
 		quizPanel = new JPanel();
 		frame.setLayout(new BorderLayout());
@@ -59,17 +68,26 @@ public class JeoparCruddy implements ActionListener {
 		// 6. Use the firstButton variable to hold a button using the
 		// createButton method
 		firstButton = this
-				.createButton("$∂ßƒøπΩΩΩΩ≈≈ççç√∫˜∫∫∫∫µµ`¬`∫µ");
-
+				.createButton("$2000");
+quizPanel.add(firstButton);
+thirdButton = this
+.createButton("$3000");
+quizPanel.add(firstButton);
+fourthButton = this
+.createButton("$3001");
+quizPanel.add(firstButton);
+fifthButton = this
+.createButton("$999999999999999999999999999999999999999999999999999999999999");
+quizPanel.add(fifthButton);
 		// 7. Add the firstButton to the quizPanel
-		quizPanel.add(firstButton);
+		
 		// 8. Write the code inside the createButton() method below. Check that
 		// your game looks like Figure 1 in the JeoparCruddy Handout -
 		// http://bit.ly/1bvnvd4.
 
 		// 9. Use the secondButton variable to hold a button using the
 		// createButton method
-		secondButton = this.createButton("$Go drop a plop drop, okay?");
+		secondButton = this.createButton("$2001");
 		// 10. Add the secondButton to the quizPanel
 		quizPanel.add(secondButton);
 		// 11. Add an action listeners to the buttons (2 lines of code)
@@ -82,6 +100,8 @@ public class JeoparCruddy implements ActionListener {
 		frame.setSize(Toolkit.getDefaultToolkit().getScreenSize().height,
 				Toolkit.getDefaultToolkit().getScreenSize().width);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		deletination();
+		
 	}
 
 	/*
@@ -211,4 +231,23 @@ public class JeoparCruddy implements ActionListener {
 		frame.setVisible(true);
 		frame.pack();
 	}
+	
+	void speak(String words) {
+		try {
+			Runtime.getRuntime().exec("say " + words).waitFor();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	private void deletination(){
+		Date timeAtEnd = new Date();
+		speak(((timeAtEnd.getTime()-timeAtStart.getTime())*1000000 + " nanoseconds"));
+		System.out.println(((timeAtEnd.getTime()-timeAtStart.getTime())*1000000 + " nanoseconds"));
+	}
 }
+//20. add a timer ~~~ where the code starts running ~~~ timeAtStart = new
+//* Date();
+//* 
+//* ~~~ where the code ends ~~~ Date timeAtEnd = new Date();
+//* System.out.println((timeAtEnd.getTime()-timeAtStart.getTime())/1000);
+//* System.exit(0);

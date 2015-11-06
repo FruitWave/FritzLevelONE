@@ -112,19 +112,19 @@ public class SimenSiaz extends KeyAdapter {
 		if ((this.imageIndex != keyCode) && (obey == false)) {
 			tries++;
 			int hmmm = new Random().nextInt(3);
-			if (hmmm == 0) {
-				speak("COBÅLT SHOWS MARE-SEE");
+			if (hmmm == 1) {
+				speak("COBÅLT SHOWS MERCY!!!");
 				yep++;
-			} else if (hmmm == 1) {
+			} if (hmmm == 1) {
 				speak("YOUR EXISTENCE MAY CONTINUE!");
 				yep++;
-			} else if (hmmm == 2) {
+			} if (hmmm == 1) {
 				speak("YOU LIKELY WILL LIVE. MAYBE.");
 				yep++;
-			} else if (hmmm == 2) {
+			} if (hmmm == 0) {
 				speak("YOU ARE DESTINED TO LIVE. AS A SLAVE TO COBÅLT!");
 				yep++;
-			} else if (hmmm == 2) {
+			} if (hmmm == 2) {
 				speak("YOU SHALL LIVE. HAIL COBÅLT!!!");
 				yep++;
 			}
@@ -133,11 +133,11 @@ public class SimenSiaz extends KeyAdapter {
 		// 13. increment tries by 1
 
 		// 14. if tries is greater than 9 (or however many you want)
-		if (tries > 10) {
-			speak(yep);
+		if (tries == 10) {
+			speak("yep");
 		}
-		if (tries > 20) {
-			speak(yep);
+		if (tries == 20) {
+			speak("yep");
 		}
 		// 15. exit the program
 
@@ -214,13 +214,4 @@ public class SimenSiaz extends KeyAdapter {
 		new SimenSiaz().makeAlbum();
 	}
 }
-
-/*
- * 20. add a timer ~~~ where the code starts running ~~~ timeAtStart = new
- * Date();
- * 
- * ~~~ where the code ends ~~~ Date timeAtEnd = new Date();
- * System.out.println((timeAtEnd.getTime()-timeAtStart.getTime())/1000);
- * System.exit(0);
- */
 
