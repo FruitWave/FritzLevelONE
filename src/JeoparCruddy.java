@@ -1,3 +1,4 @@
+
 ////////////////////////////// Copyright Wintriss Technical Schools 2013
 import java.applet.AudioClip;
 import java.awt.BorderLayout;
@@ -8,6 +9,7 @@ import java.awt.Toolkit;
 import java.util.Date;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.net.URL;
 
 import javax.sound.sampled.AudioInputStream;
@@ -28,17 +30,17 @@ import javax.swing.JPanel;
 public class JeoparCruddy implements ActionListener {
 	private JButton firstButton;
 	private JButton secondButton;
-	private JButton thirdButton; 
+	private JButton thirdButton;
 	private JButton fourthButton;
 	private JButton fifthButton;
 	private JButton sixthButton;
 	private JButton sevenButton;
 	private JButton eightButton;
 	private JButton nineButton;
-	
-Date timeAtStart;
+
+	Date timeAtStart;
 	private JPanel quizPanel;
-	int score = 0;
+	double score = 0;
 	JLabel scoreBox = new JLabel("0");
 	int buttonCount = 0;
 
@@ -47,7 +49,8 @@ Date timeAtStart;
 	}
 
 	private void start() {
-		timeAtStart = new Date();
+		//timeAtStart = new Date();
+		playThemaeticallity();
 		JFrame frame = new JFrame();
 		quizPanel = new JPanel();
 		frame.setLayout(new BorderLayout());
@@ -67,49 +70,60 @@ Date timeAtStart;
 		System.out.println("Fritz is cool.");
 		// 6. Use the firstButton variable to hold a button using the
 		// createButton method
-		firstButton = this
-				.createButton("$2000");
-quizPanel.add(firstButton);
-thirdButton = this
-.createButton("$3000");
-quizPanel.add(firstButton);
-fourthButton = this
-.createButton("$3001");
-quizPanel.add(firstButton);
-fifthButton = this
-.createButton("$999999999999999999999999999999999999999999999999999999999999");
-quizPanel.add(fifthButton);
+		firstButton = this.createButton("$204080160");
+		quizPanel.add(firstButton);
+		secondButton = this.createButton("$968574125");
+		quizPanel.add(secondButton);
+		thirdButton = this.createButton("$999999999");
+		quizPanel.add(thirdButton);
+		fourthButton = this.createButton("$3001");
+		quizPanel.add(fourthButton);
+		fifthButton = this.createButton("$99200");
+		quizPanel.add(fifthButton);
+		sixthButton = this.createButton("$5026");
+		quizPanel.add(sixthButton);
+		sevenButton = this.createButton("$1");
+		quizPanel.add(sevenButton);
+		eightButton = this.createButton("$120000000");
+		quizPanel.add(eightButton);
+		nineButton = this.createButton("$120000000");
+		quizPanel.add(nineButton);
 		// 7. Add the firstButton to the quizPanel
-		
+
 		// 8. Write the code inside the createButton() method below. Check that
 		// your game looks like Figure 1 in the JeoparCruddy Handout -
 		// http://bit.ly/1bvnvd4.
 
 		// 9. Use the secondButton variable to hold a button using the
 		// createButton method
-		secondButton = this.createButton("$2001");
+		
 		// 10. Add the secondButton to the quizPanel
-		quizPanel.add(secondButton);
+		
 		// 11. Add an action listeners to the buttons (2 lines of code)
-
+		firstButton.addActionListener(this);
+		secondButton.addActionListener(this);
+		thirdButton.addActionListener(this);
+		fifthButton.addActionListener(this);
+		sixthButton.addActionListener(this);
+		sevenButton.addActionListener(this);
+		eightButton.addActionListener(this);
+		nineButton.addActionListener(this);
 		// 12. Fill in the actionPerformed() method below
 
 		frame.pack();
 		quizPanel.setLayout(new GridLayout(buttonCount + 1, 3));
 		frame.add(makeScorePanel(), BorderLayout.NORTH);
-		frame.setSize(Toolkit.getDefaultToolkit().getScreenSize().height,
-				Toolkit.getDefaultToolkit().getScreenSize().width);
+		frame.setSize(Toolkit.getDefaultToolkit().getScreenSize().height, Toolkit.getDefaultToolkit().getScreenSize().width);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		deletination();
 		
+
 	}
 
 	/*
-	 * 13. Add buttons so that you have $200, $400, $600, $800 and $1000
-	 * questions
+	 * 13. Add buttons so that you have $200, $400, $600, $800 and $1000 questions
 	 * 
-	 * [optional] Use the showImage or playSound methods when the user answers a
-	 * question [optional] Add new topics for the quiz
+	 * [optional] Use the showImage or playSound methods when the user answers a question [optional] Add new topics for
+	 * the quiz
 	 */
 
 	private JButton createButton(String dollarAmount) {
@@ -126,16 +140,22 @@ quizPanel.add(fifthButton);
 
 	public void actionPerformed(ActionEvent arg0) {
 		// Remove this temporary message:
-		JOptionPane
-				.showMessageDialog(null,
-						"pressed " + ((JButton) arg0.getSource()).getText()
-								+ " button");
+		JOptionPane.showMessageDialog(null, "You have pressed the " + ((JButton) arg0.getSource()).getText() + " button. Be ashamed.");
 
 		// Use the method that plays the JeoparCruddy theme music.
-
+		playThemaeticallity();
 		JButton buttonPressed = (JButton) arg0.getSource();
 		// If the buttonPressed was the firstButton
-
+if (buttonPressed.equals(firstButton)) {
+	playThemaeticallity();
+	askQuestion("What planet exists exactly one A.U., or 92.956 million miles, from the Sun?", "Earth", 204080160);
+} else if (buttonPressed.equals(secondButton)) {
+	playThemaeticallity();
+	askQuestion("Is the answer you are about to type incorrect?", "possibly", 968574125);
+} else if (buttonPressed.equals(thirdButton)) {
+	playThemaeticallity();
+	askQuestion("Free Question!!! Type 'a'!!!", "a", 999999999);
+}
 		// Call the askQuestion() method
 
 		// Fill in the askQuestion() method. When you play the game, the score
@@ -149,15 +169,19 @@ quizPanel.add(fifthButton);
 
 	}
 
-	private void askQuestion(String question, String correctAnswer,
-			int prizeMoney) {
+	private void askQuestion(String question, String correctAnswer, int prizeMoney) {
 		// Remove this temporary message
-		JOptionPane.showMessageDialog(null,
-				"this is where the question will be asked");
+		
 		// Use a pop up to ask the user the question
+String answer = JOptionPane.showInputDialog(question);
 
 		// If the answer is correct
-
+if (answer.equalsIgnoreCase(correctAnswer)) {
+	JOptionPane.showMessageDialog(null, "Correctifness is yours.");
+	score = score + prizeMoney;
+	updateScore();
+	JOptionPane.showMessageDialog(null, "You have " + score + "!!!! Nicely done!!!");
+}
 		// Increase the score by the prizeMoney
 
 		// Call the updateScore() method
@@ -174,11 +198,9 @@ quizPanel.add(fifthButton);
 
 	}
 
-	public void playJeoparCruddyTheme() {
+	public void playThemaeticallity() {
 		try {
-			AudioInputStream audioInputStream = AudioSystem
-					.getAudioInputStream(new URL(
-							"http://school.wintrisstech.org/sounds/Jeopardy.wav"));
+			AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("/Users/League/Google Drive/league-sounds/jeopardy.wav"));
 			Clip clip = AudioSystem.getClip();
 			clip.open(audioInputStream);
 			clip.start();
@@ -187,9 +209,9 @@ quizPanel.add(fifthButton);
 		}
 	}
 
+
 	private void playSound(String fileName) {
-		AudioClip scream = JApplet.newAudioClip(getClass()
-				.getResource(fileName));
+		AudioClip scream = JApplet.newAudioClip(getClass().getResource(fileName));
 		scream.play();
 	}
 
@@ -231,7 +253,7 @@ quizPanel.add(fifthButton);
 		frame.setVisible(true);
 		frame.pack();
 	}
-	
+
 	void speak(String words) {
 		try {
 			Runtime.getRuntime().exec("say " + words).waitFor();
@@ -239,15 +261,17 @@ quizPanel.add(fifthButton);
 			e.printStackTrace();
 		}
 	}
-	private void deletination(){
+
+	private void deletination() {
 		Date timeAtEnd = new Date();
-		speak(((timeAtEnd.getTime()-timeAtStart.getTime())*1000000 + " nanoseconds"));
-		System.out.println(((timeAtEnd.getTime()-timeAtStart.getTime())*1000000 + " nanoseconds"));
+		speak(((timeAtEnd.getTime() - timeAtStart.getTime()) * 1000000 + " nanoseconds"));
+		System.out.println(((timeAtEnd.getTime() - timeAtStart.getTime()) * 1000000 + " nanoseconds"));
+		
 	}
 }
-//20. add a timer ~~~ where the code starts running ~~~ timeAtStart = new
-//* Date();
-//* 
-//* ~~~ where the code ends ~~~ Date timeAtEnd = new Date();
-//* System.out.println((timeAtEnd.getTime()-timeAtStart.getTime())/1000);
-//* System.exit(0);
+// 20. add a timer ~~~ where the code starts running ~~~ timeAtStart = new
+// * Date();
+// *
+// * ~~~ where the code ends ~~~ Date timeAtEnd = new Date();
+// * System.out.println((timeAtEnd.getTime()-timeAtStart.getTime())/1000);
+// * System.exit(0);
