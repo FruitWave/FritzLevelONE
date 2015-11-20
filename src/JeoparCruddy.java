@@ -50,8 +50,7 @@ public class JeoparCruddy implements ActionListener {
 
 	private void start() {
 		//timeAtStart = new Date();
-		playThemaeticallity();
-		JFrame frame = new JFrame();
+				JFrame frame = new JFrame();
 		quizPanel = new JPanel();
 		frame.setLayout(new BorderLayout());
 
@@ -140,21 +139,30 @@ public class JeoparCruddy implements ActionListener {
 
 	public void actionPerformed(ActionEvent arg0) {
 		// Remove this temporary message:
-		JOptionPane.showMessageDialog(null, "You have pressed the " + ((JButton) arg0.getSource()).getText() + " button. Be ashamed.");
+		JOptionPane.showMessageDialog(null, "You have pressed the " + ((JButton) arg0.getSource()).getText() + " button. Beware!");
 
 		// Use the method that plays the JeoparCruddy theme music.
-		playThemaeticallity();
+		
 		JButton buttonPressed = (JButton) arg0.getSource();
 		// If the buttonPressed was the firstButton
 if (buttonPressed.equals(firstButton)) {
-	playThemaeticallity();
+	
 	askQuestion("What planet exists exactly one A.U., or 92.956 million miles, from the Sun?", "Earth", 204080160);
 } else if (buttonPressed.equals(secondButton)) {
-	playThemaeticallity();
+	
 	askQuestion("Is the answer you are about to type incorrect?", "possibly", 968574125);
 } else if (buttonPressed.equals(thirdButton)) {
-	playThemaeticallity();
+	
 	askQuestion("Free Question!!! Type 'a'!!!", "a", 999999999);
+} else if (buttonPressed.equals(fourthButton)) {
+	
+	askQuestion("Decipher this: The answer to this question is a matter of an adventure.", "quest", 3001);
+} else if (buttonPressed.equals(fifthButton)) {
+	
+	askQuestion("What is 5^3", "125", 99200);
+} else if (buttonPressed.equals(sixthButton)) {
+
+	askQuestion("Go away and eat marshmallows. Thank You.", "okay", 1);
 }
 		// Call the askQuestion() method
 
@@ -181,6 +189,19 @@ if (answer.equalsIgnoreCase(correctAnswer)) {
 	score = score + prizeMoney;
 	updateScore();
 	JOptionPane.showMessageDialog(null, "You have " + score + "!!!! Nicely done!!!");
+	showCorrectImage();
+	for (int i = 0; i < 20; i++) {
+		playSound("woof.wav");
+	}
+} else {
+	JOptionPane.showMessageDialog(null, "No, no, NO! JUST NO! Jeez! Wait--are you still here?");
+	score = score - prizeMoney;
+	updateScore();
+	JOptionPane.showMessageDialog(null, "You have " + score + "!!!! Nicely done!!!");
+	showIncorrectImage();
+	for (int i = 0; i < 5; i++) {
+		playSound("you are dumb.wav");
+	}
 }
 		// Increase the score by the prizeMoney
 
@@ -237,11 +258,11 @@ if (answer.equalsIgnoreCase(correctAnswer)) {
 	}
 
 	void showCorrectImage() {
-		showImage("correct.jpg");
+		showImage("money raining umbrella.jpg");
 	}
 
 	void showIncorrectImage() {
-		showImage("incorrect.jpg");
+		showImage("angry cat face.jpg");
 	}
 
 	private void showImage(String fileName) {
