@@ -50,13 +50,13 @@ JOptionPane.showMessageDialog(null, "Your mouse repositionitoricalitynessityishn
    	 /** If the mouse co-ordinates and secret location are close, we'll let them ask a question. */
    	 if (areClose(mouseX, secretLocationX) && areClose(mouseY, secretLocationY)) {
    		 // 8. Get the user to enter a question for the Fåęt Bot
-JOptionPane.showInputDialog("What's yer age, kid?");
-JOptionPane.showInputDialog("Your close, kid. Good work.");
+JOptionPane.showMessageDialog( null, "What's yer age, kid?");
+JOptionPane.showMessageDialog( null, "Your close, kid. Good work.");
 
    		 // 9. Find a spooky sound and put it in your default package (freesound.org)
    		 // AudioClip sound = JApplet.newAudioClip(getClass().getResource("spooky.aif"));
    		 // 10. Play the sound
-JOptionPane.showInputDialog("What's yer existence, Shucks?");
+JOptionPane.showMessageDialog( null, "What's yer existence, Shucks?");
 AudioClip sound = JApplet.newAudioClip(getClass().getResource("creep dude.wav"));
 sound.play();
    		 // 11. Use the pause() method below to wait until your music has finished
@@ -66,12 +66,12 @@ pause(10);
 
    	 }
    	 if (!areClose(mouseX, secretLocationX) && !areClose(mouseY, secretLocationY)) {
-   		JOptionPane.showInputDialog("Your not close, kid. Lowl.");
+   		JOptionPane.showMessageDialog( null, "Your not close, kid. Lowl.");
    	 }
     }
 
     private boolean areClose(int mouseX, int secretLocationX) {
-   	 return mouseX < secretLocationX + 15 && mouseX > secretLocationX - 15;
+   	 return mouseX < secretLocationX + 115 && mouseX > secretLocationX - 115;
     }
 
     private void pause(int seconds) {
