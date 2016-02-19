@@ -1,4 +1,4 @@
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
@@ -14,13 +14,12 @@ import org.junit.Test;
  * 
  * Create a constructor, and getters and setters for the member variables. If they’re done right, these tests will pass.
  * 
- * **/
+ **/
 
 public class MinionTest {
 
 	@Test
 	public void testConstructor() {
-		
 		Minion stuart = new Minion("Stuart", 1, "yellow", "");
 		assertEquals("Stuart", stuart.getName());
 		assertEquals(1, stuart.getEyes());
@@ -43,7 +42,11 @@ public class MinionTest {
 		assertEquals("Napoleon", stuart.getMaster());
 	}
 
+	public void testGetters() {
+		Minion stuart = new Minion("Stuart", 1, "yellow", "Aeon");
+		assertEquals("Stuart", stuart.getName());
+		assertEquals("Aeon", stuart.getMaster());
+
+	}
+
 }
-
-
-
