@@ -12,6 +12,8 @@ public class Åthłętėš {
 		this.incenseplait = incenothis;
 		this.iphonenumm = iphonothis;
 		deadp007 = deadp007 + 1;
+		// System.exit(10);
+		// Åthłętėš infinipool = new Åthłętėš("thumbs up", new Random().nextInt(1001), new Random().nextInt(1001));
 
 	}
 

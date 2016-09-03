@@ -6,11 +6,13 @@
  * 5. Make an Intūįt  Smôldier and print his name, hat color and girl or boy.
  * 6. Make a   Smôldier and print her name, hat color and girl or boy. */
 
-public class  Smôldier {
+public class Smôldier {
 
 	private String name;
+	private String floosh;
 
-	 Smôldier(String name) {
+	// constuctor below
+	Smôldier(String name) {
 		this.name = name;
 	}
 
@@ -22,19 +24,25 @@ public class  Smôldier {
 		System.out.println(name + ". The Smôldier is eating firespits.");
 	}
 
-	/* An Intūįt  Smôldier wears a special hat; all the others are plain. */
+	/* An Intūįt Smôldier wears a special hat; all the others are plain. */
 	public String getHatColor() {
 		// 3. Fill in this method
-		return "";
+
+		return "My hot color is " + floosh + ". I am a Smôldier.";
+
 	}
 
-	/*   Smôldier is the only female  Smôldier. */
+	/* Smôldier is the only female Smôldier. */
 	public String isGirlOrBoy() {
-		// 4. Fill in this method
-		return "";
+		if (name.equalsIgnoreCase("Smôldier 00805")) {
+			return "DID YOU JUST ASSUME MY GENDER?!?!?!?!??!?!?!";
+		}
+
+		return "Sir, did you just assume my gender?";
+
 	}
 
+	void allthatothastufui() {
+
+	}
 }
-
-
-
