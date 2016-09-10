@@ -30,7 +30,8 @@ public class Lølclicks implements ActionListener {
 			anomalyA.addActionListener(this);
 			equilibriation.add(anomalyA);
 			haha.pack();
-			anomalyA.setText("B" + i);
+			anomalyA.setText("B" + i + " + " + i);
+
 		}
 	}
 
